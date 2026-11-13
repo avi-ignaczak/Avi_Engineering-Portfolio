@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Avi Ignaczak engineering portfolio &mdash; mechanical design, manufacturing, additive manufacturing, biomechanics, and vehicle projects." name="description"/>
+  <title>
+   Avi Ignaczak | Engineering Portfolio
+  </title>
+  <style>
+   :root {
+      --bg-color: #FAFAFC;
+      --text-main: #111111;
+      --text-muted: #666666;
+      --accent: #CFB991;
+      --accent-dark: #8E6F3E;
+      --card-bg: #FFFFFF;
+      --dark-block: #222222;
+      --border: #EAEAEA;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 5%;
+      background-color: rgba(250,250,252,.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .nav-links a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: .9rem;
+      transition: color .25s;
+    }
+
+    .nav-links a:hover { color: var(--text-main); }
+
+    .hero {
+      background:
+        linear-gradient(rgba(17,17,17,.74), rgba(17,17,17,.90)),
+        url('assets/asme_team.jpg') center 42%/cover no-repeat;
+      padding: 8rem 5%;
+      width: 100%;
+      color: white;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+
+    .hero-text { flex: 1; max-width: 760px; }
+    .eyebrow {
+      display: inline-block;
+      color: #F2E7D0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .82rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #E0E0E0;
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+      max-width: 720px;
+    }
+
+    .btn-hero, .btn {
+      display: inline-block;
+      padding: 1rem 2.1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s, background-color .2s, color .2s;
+    }
+
+    .btn-hero { background: var(--accent); color: #111; }
+    .btn-hero:hover { transform: translateY(-2px); background: #D9C7A1; }
+    .btn { background: var(--text-main); color: #fff; }
+    .btn:hover { transform: translateY(-2px); background: var(--accent-dark); }
+
+    .projects-grid-section {
+      padding: 5rem 5% 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-weight: 800;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .grid-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--text-main);
+      box-shadow: 0 4px 20px rgba(0,0,0,.04);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .grid-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.10);
+    }
+
+    .grid-img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+      display: block;
+    }
+
+
+    .grid-info { padding: 1.5rem; }
+    .grid-info h3 { font-size: 1.2rem; margin-bottom: .45rem; }
+    .grid-info p { font-size: .9rem; color: var(--text-muted); }
+
+    .project-detail {
+      max-width: 1200px;
+      margin: 8rem auto;
+      padding: 5rem 5% 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .project-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: .5rem;
+      line-height: 1.1;
+      letter-spacing: -.5px;
+    }
+
+    .project-meta {
+      font-size: 1rem;
+      color: var(--accent-dark);
+      font-weight: 800;
+      margin-bottom: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+    }
+
+    .project-text {
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+
+    .project-text h4 {
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-dark);
+      margin-bottom: .2rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-text h4:first-child { margin-top: 0; }
+    .project-text p { margin-bottom: 1.5rem; font-size: 1.03rem; color: #333; }
+
+    .skills-section { margin-top: 2.5rem; width: 100%; }
+    .skills-header {
+      background: var(--dark-block);
+      color: white;
+      text-align: center;
+      font-weight: 800;
+      padding: .6rem;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-bottom: .8rem;
+      text-transform: uppercase;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .8rem;
+    }
+
+    .skill-badge {
+      background: var(--dark-block);
+      color: white;
+      text-align: center;
+      font-weight: 700;
+      padding: .65rem;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+
+    .project-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      max-height: 700px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.06);
+      background: white;
+    }
+
+    .gallery-item video { width: 100%; max-height: 700px; border-radius: 8px; background: #111; box-shadow: 0 4px 15px rgba(0,0,0,.06); }
+
+    .contain img { object-fit: contain; max-height: 620px; }
+
+    .gallery-item p {
+      margin-top: 1rem;
+      font-size: .9rem;
+      color: var(--text-muted);
+      text-align: center;
+      font-style: italic;
+    }
+
+    .text-visual {
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 3rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,.04);
+    }
+
+    .text-visual .metric {
+      font-size: 3.2rem;
+      line-height: 1;
+      font-weight: 900;
+      margin-bottom: .6rem;
+    }
+
+    .text-visual .metric-label {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-section {
+      padding: 6rem 5%;
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-img img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.1);
+    }
+
+    .about-copy p { font-size: 1.08rem; color: #444; margin-bottom: 1.4rem; }
+    .facts {
+      background: #F2F2F4;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      margin: 2rem 0 2.5rem;
+    }
+    .facts ul { list-style: none; }
+    .facts li { margin-bottom: .45rem; color: #333; }
+    .facts li:last-child { margin-bottom: 0; }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: .85rem;
+      padding: 2rem 1rem 3rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero { padding: 6rem 5%; }
+      .hero h1 { font-size: 2.8rem; }
+      .project-layout, .about-grid { grid-template-columns: 1fr; }
+      .project-text { position: relative; top: 0; }
+      .project-detail { margin: 5rem auto; }
+      .project-title { font-size: 2.35rem; }
+    }
+
+    @media (max-width: 620px) {
+      .nav-links a { margin-left: 1rem; }
+      .nav-links a:first-child { display: none; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.35rem; }
+      .hero p { font-size: 1.05rem; }
+      .grid-container { grid-template-columns: 1fr; }
+    }
+  
+    /* Project thumbnails: replace each image's src with assets/your-file.jpg. */
+    .grid-card .grid-img { aspect-ratio: 16 / 10; height: auto; min-height: 220px; max-height: 260px; object-fit: cover; }
+    .grid-card:focus-visible { outline: 3px solid var(--accent-dark); outline-offset: 4px; }
+    .project-detail, .about-section { scroll-margin-top: 90px; }
+    @media (max-width: 620px) { .grid-card .grid-img { min-height: 190px; } }
+  </style>
+ </head>
+ <body>
+  <nav>
+   <a class="nav-logo" href="#">
+    Avi Ignaczak
+   </a>
+   <div class="nav-links">
+    <a href="#work">
+     Work
+    </a>
+    <a href="#about">
+     About
+    </a>
+    <a href="Resume-Avi-Ignaczak.pdf" target="_blank">
+     Resume
+    </a>
+   </div>
+  </nav>
+  <header class="hero">
+   <div class="hero-container">
+    <div class="hero-text">
+     <span class="eyebrow">
+      Integrated Business &amp; Engineering &bull; Purdue University
+     </span>
+     <h1>
+      Designing, Building &amp; Improving Real Systems.
+     </h1>
+     <p>
+      I am an Integrated Business and Engineering student with a Mechanical Engineering concentration focused on turning ideas into functional products through CAD, manufacturing, analysis, prototyping, and hands-on testing.
+     </p>
+     <a class="btn-hero" href="#work">
+      View Selected Work
+     </a>
+    </div>
+   </div>
+  </header>
+  <section class="projects-grid-section" id="work">
+   <div class="section-header">
+    Selected Work
+   </div>
+   <div class="grid-container">
+    <a class="grid-card" href="#crosskart">
+     <img alt="Crosskart off-road race car" class="grid-img" loading="lazy" src="assets/img-000.jpg"/>
+     <div class="grid-info">
+      <h3>
+       Independent Suspension Crosskart
+      </h3>
+      <p>
+       Personal Project &bull; Vehicle Design &amp; Fabrication
+      </p>
+     </div>
+    </a>
+    <a class="grid-card" href="#biomechanics">
+     <img alt="Purdue ASME Biomechanics team presenting a prototype" class="grid-img" loading="lazy" src="assets/asme_team.jpg"/>
+     <div class="grid-info">
+      <h3>
+       Biomechanics Product Development
+      </h3>
+      <p>
+       Purdue ASME &bull; Chief Engineer
+      </p>
+     </div>
+    </a>
+    <a class="grid-card" href="#phillips">
+     <img alt="Metal Additive Manufacturing thumbnail" class="grid-img" loading="lazy" src="assets/phillips-thumbnail.jpg"/>
+     <div class="grid-info">
+      <h3>
+       Metal Additive Manufacturing
+      </h3>
+      <p>
+       Phillips Corporation &bull; Columbia Class Submarines
+      </p>
+     </div>
+    </a>
+    <a class="grid-card" href="#bechtel">
+     <img alt="CNC Manufacturing &amp; Mentorship thumbnail" class="grid-img" loading="lazy" src="assets/bechtel-thumbnail.jpg"/>
+     <div class="grid-info">
+      <h3>
+       CNC Manufacturing &amp; Mentorship
+      </h3>
+      <p>
+       Bechtel Innovation Design Center &bull; Teaching Assistant
+      </p>
+     </div>
+    </a>
+    <a class="grid-card" href="#printing">
+     <img alt="3D Printing Business thumbnail" class="grid-img" loading="lazy" src="assets/printing-thumbnail.jpg"/>
+     <div class="grid-info">
+      <h3>
+       3D Printing Business
+      </h3>
+      <p>
+       Product Development &bull; Manufacturing &bull; Sales
+      </p>
+     </div>
+    </a>
+    <a class="grid-card" href="#motorcycle">
+     <img alt="Custom electric motorcycle project" class="grid-img" loading="lazy" src="assets/img-012.jpg"/>
+     <div class="grid-info">
+      <h3>
+       Electric Motorcycle
+      </h3>
+      <p>
+       Personal Project &bull; Mechanical &amp; Electrical Systems
+      </p>
+     </div>
+    </a>
+    <a class="grid-card" href="#f100-restoration">
+     <img alt="1979 Ford F-100 Restoration thumbnail" class="grid-img" loading="lazy" src="assets/06-bodywork-progress.jpg"/>
+     <div class="grid-info">
+      <h3>
+       1979 Ford F-100 Restoration
+      </h3>
+      <p>
+       Personal Project &bull; Restoration into Sale
+      </p>
+     </div>
+    </a>
+    <a class="grid-card" href="#f100-crown-vic">
+     <img alt="1978 Ford F-100 Crown Victoria Swap thumbnail" class="grid-img" loading="lazy" src="assets/IMG_5696.jpeg"/>
+     <div class="grid-info">
+      <h3>
+       1978 Ford F-100 Crown Victoria Swap
+      </h3>
+      <p>
+       Personal Project &bull; Custom Chassis &amp; Vehicle Integration
+      </p>
+     </div>
+    </a>
+    <a class="grid-card" href="#yamaha-gp1300r">
+     <img alt="2006 Yamaha GP1300R Repair thumbnail" class="grid-img" loading="lazy" src="assets/01-yamaha-side.jpg"/>
+     <div class="grid-info">
+      <h3>
+       2006 Yamaha GP1300R Repair
+      </h3>
+      <p>
+       Personal Project &bull; Composite Hull Repair
+      </p>
+     </div>
+    </a>
+    <a class="grid-card" href="#dune-buggy">
+     <img alt="Two-Seater Custom Dune Buggy thumbnail" class="grid-img" loading="lazy" src="assets/dune-buggy-thumbnail.jpg"/>
+     <div class="grid-info">
+      <h3>
+       Two-Seater Custom Dune Buggy
+      </h3>
+      <p>
+       Personal Project &bull; Vehicle Design &amp; Fabrication
+      </p>
+     </div>
+    </a>
+    <a class="grid-card" href="#audi-s4">
+     <img alt="2010 Audi S4 Repair and Rebuild thumbnail" class="grid-img" loading="lazy" src="assets/13-exterior-view.jpg"/>
+     <div class="grid-info">
+      <h3>
+       2010 Audi S4 Repair and Rebuild
+      </h3>
+      <p>
+       Personal Project &bull; Automotive Diagnostics
+      </p>
+     </div>
+    </a>
+   </div>
+  </section>
+  <section class="project-detail" id="crosskart">
+   <h2 class="project-title">
+    Independent Suspension Crosskart
+   </h2>
+   <div class="project-meta">
+    Personal Project | Sep 2022 &ndash; Present
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Designed and built a single-seat off-road vehicle focused on high-speed, all-terrain performance through repeated development of the chassis, suspension, steering, and powertrain.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Project founder and lead designer responsible for system architecture, CAD development, fabrication, testing, troubleshooting, and coordinating a small student build team during the project's early stages.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      Developed the vehicle through three major design iterations and more than 450 CAD revisions. Each build cycle was used to improve component packaging, suspension behavior, structural layout, serviceability, and overall reliability.
+     </p>
+     <h4>
+      Impact &amp; Metrics
+     </h4>
+     <p>
+      Produced a functional and predictable vehicle platform while building deep hands-on experience in mechanical design, fabrication, system integration, and iterative engineering.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        Fusion 360 CAD
+       </div>
+       <div class="skill-badge">
+        Vehicle Design
+       </div>
+       <div class="skill-badge">
+        MIG Welding
+       </div>
+       <div class="skill-badge">
+        Fabrication
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+     <div class="gallery-item">
+      <video aria-label="Crosskart driving demonstration" controls="" playsinline="" poster="assets/img-000.jpg" preload="metadata">
+       <source src="assets/crosskart_drive.mp4" type="video/mp4"/>
+       Your browser does not support video playback.
+       <a href="assets/crosskart_drive.mp4">
+        Watch the Crosskart driving video
+       </a>
+       .
+      </video>
+      <p>
+       Crosskart driving demonstration &mdash; the custom-built vehicle in action.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Crosskart completed prototype" loading="lazy" src="assets/img-000.jpg"/>
+      <p>
+       Completed crosskart prototype after multiple rounds of chassis, suspension, and powertrain development.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Crosskart frame and engine installation" loading="lazy" src="assets/img-001.jpg"/>
+      <p>
+       Fabrication and powertrain packaging during an earlier stage of the build.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Crosskart front suspension and chassis" loading="lazy" src="assets/img-003.jpg"/>
+      <p>
+       Front suspension, steering, and chassis packaging during development.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="project-detail" id="biomechanics">
+   <h2 class="project-title">
+    Biomechanics Product Development
+   </h2>
+   <div class="project-meta">
+    Purdue ASME | Chief Engineer | Jan 2025 &ndash; Present
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Lead hands-on development of biomechanics devices that combine mechanical design, rapid prototyping, and practical user-focused engineering.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Chief Engineer responsible for technical direction, design review, CAD guidance, prototype development, and helping newer members build the skills needed to contribute effectively.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      Developed a lightweight portable traction splint using CAD, 3D printing, and generative design. The design incorporated a ratcheting drum mechanism to apply traction while reducing size and weight for easier use in remote environments.
+     </p>
+     <h4>
+      Impact &amp; Metrics
+     </h4>
+     <p>
+      Produced a functional prototype while building a repeatable design process around rapid iteration, lightweighting, manufacturability, and team-based engineering.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        Generative Design
+       </div>
+       <div class="skill-badge">
+        3D Printing
+       </div>
+       <div class="skill-badge">
+        Fusion 360
+       </div>
+       <div class="skill-badge">
+        Technical Leadership
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+     <div class="gallery-item">
+      <img alt="ASME Biomechanics team with prototype and poster" loading="lazy" src="assets/asme_team.jpg"/>
+      <p>
+       Purdue ASME Biomechanics presenting student-developed rehabilitation and assistive-device projects.
+      </p>
+     </div>
+     <div class="gallery-item contain">
+      <img alt="Traction splint CAD closeup" loading="lazy" src="assets/img-005.png"/>
+      <p>
+       CAD development of the traction splint's compact mechanical architecture.
+      </p>
+     </div>
+     <div class="gallery-item contain">
+      <img alt="Generative design component for traction splint" loading="lazy" src="assets/img-008.png"/>
+      <p>
+       Generative-design iteration used to reduce mass while preserving the required structural function.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="project-detail" id="phillips">
+   <h2 class="project-title">
+    Metal Additive Manufacturing
+   </h2>
+   <div class="project-meta">
+    Phillips Corporation, Federal Division | Additive Manufacturing Intern | 2025 &amp; 2026
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Supported metal additive manufacturing work for the Columbia Class submarine program while developing experience with powder bed fusion and directed energy deposition technologies.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Additive Manufacturing Intern contributing to process analysis, manufacturing support, thermal research, and technical problem solving within a federal manufacturing environment.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      Simulated and assessed thermal warping conditions in DED processes, researched transient versus static thermal loading, and documented potential approaches for reducing manufacturing distortion.
+     </p>
+     <h4>
+      Impact &amp; Learning
+     </h4>
+     <p>
+      Built practical experience connecting heat-transfer theory with metal additive manufacturing behavior while operating and learning both PBF and DED processes.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        DED
+       </div>
+       <div class="skill-badge">
+        PBF
+       </div>
+       <div class="skill-badge">
+        Heat Transfer
+       </div>
+       <div class="skill-badge">
+        Process Analysis
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+     <div class="text-visual">
+      <div class="metric">
+       2
+      </div>
+      <div class="metric-label">
+       Metal additive manufacturing processes studied and operated: PBF + DED
+      </div>
+      <div class="metric">
+       2
+      </div>
+      <div class="metric-label">
+       Summer internship terms supporting advanced manufacturing work in 2025 and 2026
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="project-detail" id="bechtel">
+   <h2 class="project-title">
+    CNC Manufacturing &amp; Mentorship
+   </h2>
+   <div class="project-meta">
+    Bechtel Innovation Design Center | Teaching Assistant | Aug 2025 &ndash; Present
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Support Purdue students through the complete design-to-manufacturing workflow, from CAD/CAM review through CNC setup, machining, and troubleshooting.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Teaching Assistant responsible for validating student manufacturing plans, operating CNC mills and lathes, maintaining safe shop practices, and mentoring students as they move from digital models to finished parts.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      Review CAD and CAM files for manufacturability and lab compliance, help students select tooling and setup strategies, and diagnose programming or machining issues before they become failed parts.
+     </p>
+     <h4>
+      Impact
+     </h4>
+     <p>
+      Help students produce safer, more reliable machining outcomes while building their confidence in CNC programming, setup, tooling, and shop best practices.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        CNC Milling
+       </div>
+       <div class="skill-badge">
+        CNC Turning
+       </div>
+       <div class="skill-badge">
+        CAD/CAM Review
+       </div>
+       <div class="skill-badge">
+        Manufacturing Mentorship
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+     <div class="text-visual">
+      <div class="metric">
+       CAD &rarr; CAM &rarr; CNC
+      </div>
+      <div class="metric-label">
+       Hands-on support across the complete digital manufacturing workflow.
+      </div>
+      <div class="metric">
+       Mill + Lathe
+      </div>
+      <div class="metric-label">
+       Operation, setup guidance, troubleshooting, and machining best practices.
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="project-detail" id="printing">
+   <h2 class="project-title">
+    Avi's 3D Printing
+   </h2>
+   <div class="project-meta">
+    Founder &amp; Owner | Feb 2020 &ndash; Dec 2023
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Founded a small 3D-printing business during the COVID-19 pandemic, initially manufacturing mask strain-relief devices for healthcare workers.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Managed the full product lifecycle including design, manufacturing, quality control, production planning, order fulfillment, and customer communication.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      Expanded production capacity as demand increased, scaling the operation from one printer to five while improving throughput and maintaining consistent output.
+     </p>
+     <h4>
+      Impact &amp; Metrics
+     </h4>
+     <p>
+      Scaled from approximately 10 units per month to 120 units per month and generated up to $5,000 in monthly sales.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        Additive Manufacturing
+       </div>
+       <div class="skill-badge">
+        Entrepreneurship
+       </div>
+       <div class="skill-badge">
+        Production Scaling
+       </div>
+       <div class="skill-badge">
+        Product Lifecycle
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+     <div class="text-visual">
+      <div class="metric">
+       1 &rarr; 5
+      </div>
+      <div class="metric-label">
+       3D printers added to expand production capacity.
+      </div>
+      <div class="metric">
+       10 &rarr; 120
+      </div>
+      <div class="metric-label">
+       Units produced per month as demand grew.
+      </div>
+      <div class="metric">
+       $5K
+      </div>
+      <div class="metric-label">
+       Peak monthly sales.
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="project-detail" id="motorcycle">
+   <h2 class="project-title">
+    Electric Motorcycle
+   </h2>
+   <div class="project-meta">
+    Personal Project | Dec 2020 &ndash; Feb 2021
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Designed and built an electric motorcycle as an early independent engineering project combining vehicle packaging, fabrication, electrical systems, and battery development.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Solo designer and builder responsible for CAD refinement, component selection, frame construction, battery assembly, wiring, and system integration.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      Refined the layout in CAD, selected a hub motor and battery cells, built the frame, assembled the battery pack, and iterated on the mechanical and electrical packaging as the motorcycle took shape.
+     </p>
+     <h4>
+      Impact
+     </h4>
+     <p>
+      The project became a foundation for later engineering work by developing practical experience in circuitry, fabrication, CAD, troubleshooting, and multidisciplinary design.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        Electrical Systems
+       </div>
+       <div class="skill-badge">
+        Battery Assembly
+       </div>
+       <div class="skill-badge">
+        CAD
+       </div>
+       <div class="skill-badge">
+        Fabrication
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+     <div class="gallery-item">
+      <img alt="Electric motorcycle during construction" loading="lazy" src="assets/img-010.jpg"/>
+      <p>
+       Early-stage motorcycle build showing the frame, motor, and battery enclosure packaging.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Electric motorcycle with body panels" loading="lazy" src="assets/img-012.jpg"/>
+      <p>
+       Later design iteration with bodywork and major systems integrated.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Electric battery or electrical assembly" loading="lazy" src="assets/img-014.jpg"/>
+      <p>
+       Electrical and battery-system hardware developed as part of the motorcycle project.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="project-detail" id="f100-restoration">
+   <h2 class="project-title">
+    1979 Ford F-100 Restoration
+   </h2>
+   <div class="project-meta">
+    Personal Project | 1979 Ford F-100
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Restoring a 1979 Ford F-100 pickup with a focus on mechanical reliability, body restoration, and returning a classic truck to roadworthy condition.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Owner and hands-on builder responsible for diagnosing issues, selecting components, planning repairs, and performing mechanical and bodywork tasks.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      Working through the fuel, braking, drivetrain, suspension, and electrical systems while planning bed replacement, body preparation, and paint. Evaluating parts and repair strategies against cost, serviceability, and the finished truck&rsquo;s usability.
+     </p>
+     <h4>
+      Engineering Focus
+     </h4>
+     <p>
+      A systems-level restoration balancing mechanical function, manufacturing effort, parts compatibility, and budget.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        Vehicle Restoration
+       </div>
+       <div class="skill-badge">
+        Mechanical Diagnosis
+       </div>
+       <div class="skill-badge">
+        Bodywork
+       </div>
+       <div class="skill-badge">
+        Parts Integration
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+     <div class="gallery-item">
+      <img alt="Two F-100 trucks at the start of the restoration." loading="lazy" src="assets/01-two-f100-trucks.jpg"/>
+      <p>
+       Two F-100 trucks at the start of the restoration.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Initial condition of the F-100 with the front end disassembled." loading="lazy" src="assets/02-initial-condition.jpg"/>
+      <p>
+       Initial condition of the F-100 with the front end disassembled.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Truck in the garage during chassis and body work." loading="lazy" src="assets/03-chassis-work.jpg"/>
+      <p>
+       Truck in the garage during chassis and body work.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Rear frame, fuel tank, and suspension exposed for inspection." loading="lazy" src="assets/04-rear-frame.jpg"/>
+      <p>
+       Rear frame, fuel tank, and suspension exposed for inspection.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Replacement pickup bed during installation preparation." loading="lazy" src="assets/05-new-bed.jpg"/>
+      <p>
+       Replacement pickup bed during installation preparation.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Body panels stripped and prepared for restoration." loading="lazy" src="assets/06-bodywork-progress.jpg"/>
+      <p>
+       Body panels stripped and prepared for restoration.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="project-detail" id="f100-crown-vic">
+   <h2 class="project-title">
+    1978 Ford F-100 Crown Victoria Swap
+   </h2>
+   <div class="project-meta">
+    Personal Project | Custom Vehicle Engineering
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Reengineering a 1978 Ford F-100 around a Crown Victoria chassis, requiring substantial changes to the frame and the interfaces between the truck body and donor platform.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Lead designer and fabricator responsible for the CAD architecture and integration of major vehicle systems.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      Designed major frame revisions, custom steering, cab mounts, bed mounts, a custom dashboard and interior, and body attachment points in CAD. Developed the mounting geometry and packaging needed to fit the classic pickup body to the modified platform.
+     </p>
+     <h4>
+      Engineering Focus
+     </h4>
+     <p>
+      Custom vehicle packaging, structural interfaces, steering integration, and design-for-fabrication across an extensively modified chassis.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        CAD Design
+       </div>
+       <div class="skill-badge">
+        Chassis Integration
+       </div>
+       <div class="skill-badge">
+        Custom Steering
+       </div>
+       <div class="skill-badge">
+        Fabrication
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+     <div class="gallery-item">
+      <img alt="Initial donor truck and chassis condition" loading="lazy" src="assets/IMG_3711.jpeg"/>
+      <p>
+       Initial donor truck and chassis condition
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Brake rotor and Brembo caliper fitment" loading="lazy" src="assets/IMG_5687.jpeg"/>
+      <p>
+       Brake rotor and Brembo caliper fitment
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Body and bed mounted on the Crown Victoria platform" loading="lazy" src="assets/IMG_5696.jpeg"/>
+      <p>
+       Body and bed mounted on the Crown Victoria platform
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Wheel and brake clearance detail" loading="lazy" src="assets/IMG_6787.jpeg"/>
+      <p>
+       Wheel and brake clearance detail
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Donor powertrain and wiring layout" loading="lazy" src="assets/77369666285__6CA3F6FC-BDA6-4EC1-A477-DD45029E6445.jpeg"/>
+      <p>
+       Donor powertrain and wiring layout
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Original F-100 cab before integration" loading="lazy" src="assets/77369671114__8CE5C580-9252-4F89-9219-BD61FB58EEC2.jpeg"/>
+      <p>
+       Original F-100 cab before integration
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Cab and rear suspension during chassis work" loading="lazy" src="assets/IMG_4341.jpeg"/>
+      <p>
+       Cab and rear suspension during chassis work
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Front-end mockup and grille alignment" loading="lazy" src="assets/IMG_4343.jpeg"/>
+      <p>
+       Front-end mockup and grille alignment
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Cab positioning on the modified frame" loading="lazy" src="assets/IMG_4345.jpeg"/>
+      <p>
+       Cab positioning on the modified frame
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Engine bay and cooling package mockup" loading="lazy" src="assets/IMG_4572.jpeg"/>
+      <p>
+       Engine bay and cooling package mockup
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Cab and donor chassis separated for fabrication" loading="lazy" src="assets/IMG_4734.jpeg"/>
+      <p>
+       Cab and donor chassis separated for fabrication
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Powertrain and transmission packaging" loading="lazy" src="assets/IMG_4751.jpeg"/>
+      <p>
+       Powertrain and transmission packaging
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Hood and front bodywork trial fit" loading="lazy" src="assets/IMG_4951.jpeg"/>
+      <p>
+       Hood and front bodywork trial fit
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Custom-machined brake pedal linkage" loading="lazy" src="assets/IMG_5281.jpeg"/>
+      <p>
+       Custom-machined brake pedal linkage
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Body and bed assembly progress" loading="lazy" src="assets/IMG_5295.jpeg"/>
+      <p>
+       Body and bed assembly progress
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Fender and front-end panel alignment" loading="lazy" src="assets/IMG_5500.jpeg"/>
+      <p>
+       Fender and front-end panel alignment
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Rear frame fabrication and body mounts" loading="lazy" src="assets/IMG_6607.jpeg"/>
+      <p>
+       Rear frame fabrication and body mounts
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Body panels fitted during assembly" loading="lazy" src="assets/IMG_6609.jpeg"/>
+      <p>
+       Body panels fitted during assembly
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="project-detail" id="yamaha-gp1300r">
+   <h2 class="project-title">
+    2006 Yamaha GP1300R Repair
+   </h2>
+   <div class="project-meta">
+    Personal Project | Watercraft Repair
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Repaired a major crack at the rear of a Yamaha GP1300R hull caused by failure of a threaded mounting insert.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Diagnosed the mounting failure, repaired the damaged hull, and redesigned the attachment hardware to address the underlying loading problem.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      Redesigned the mounting part to connect both threaded attachment points, distributing load across the connection instead of concentrating it at a single insert. The linked design also uses the second mounting point to resist rotation while tightening, reducing the tendency to lever against the damaged area.
+     </p>
+     <h4>
+      Engineering Focus
+     </h4>
+     <p>
+      Stress concentration reduction, fastener load paths, anti-rotation geometry, and repair-oriented redesign.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        Failure Analysis
+       </div>
+       <div class="skill-badge">
+        Load Distribution
+       </div>
+       <div class="skill-badge">
+        Mechanical Design
+       </div>
+       <div class="skill-badge">
+        Hull Repair
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+     <div class="gallery-item">
+      <img alt="Yamaha GP1300R before repair." loading="lazy" src="assets/01-yamaha-side.jpg"/>
+      <p>
+       Yamaha GP1300R before repair.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Watercraft and trailer before repair." loading="lazy" src="assets/02-yamaha-front.jpg"/>
+      <p>
+       Watercraft and trailer before repair.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Yamaha GP1300R exterior." loading="lazy" src="assets/03-yamaha-front-quarter.jpg"/>
+      <p>
+       Yamaha GP1300R exterior.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Failed threaded insert and cracking around the mounting point." loading="lazy" src="assets/04-damaged-insert.jpg"/>
+      <p>
+       Failed threaded insert and cracking around the mounting point.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Cracked hull at the rear mounting area." loading="lazy" src="assets/05-hull-crack.jpg"/>
+      <p>
+       Cracked hull at the rear mounting area.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Redesigned bracket joining the two mounting locations to distribute loading and resist rotation." loading="lazy" src="assets/06-redesigned-bracket.jpg"/>
+      <p>
+       Redesigned bracket joining the two mounting locations to distribute loading and resist rotation.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Internal mounting arrangement and fasteners." loading="lazy" src="assets/07-mounting-area.jpg"/>
+      <p>
+       Internal mounting arrangement and fasteners.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Rear of watercraft disassembled for access to the repair area." loading="lazy" src="assets/08-rear-disassembly.jpg"/>
+      <p>
+       Rear of watercraft disassembled for access to the repair area.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Engine bay inspection during repair." loading="lazy" src="assets/09-engine-detail.jpg"/>
+      <p>
+       Engine bay inspection during repair.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Engine and component inspection." loading="lazy" src="assets/10-engine-components.jpg"/>
+      <p>
+       Engine and component inspection.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Internal mechanical components during troubleshooting." loading="lazy" src="assets/11-internal-components.jpg"/>
+      <p>
+       Internal mechanical components during troubleshooting.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="project-detail" id="dune-buggy">
+   <h2 class="project-title">
+    Two-Seater Custom Dune Buggy
+   </h2>
+   <div class="project-meta">
+    Personal Project | High School, Freshman&ndash;Sophomore Years
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Designed and began building a fully custom two-seat dune buggy powered by a 3.7L Mustang V6 and paired with a five-speed Tremec manual transmission.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Independent designer and builder responsible for the vehicle concept, layout, and hands-on fabrication during freshman and sophomore years of high school.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      Developed the custom vehicle around the selected powertrain and the packaging requirements of a two-seat off-road chassis. As the project progressed, assessed the cost, footprint, and effort required to complete it.
+     </p>
+     <h4>
+      Outcome &amp; Lessons
+     </h4>
+     <p>
+      Chose to discontinue the build and redirect resources toward the Crosskart, which offered a more manageable cost and physical footprint. The experience helped shape later decisions about project scope and feasibility.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        Vehicle Design
+       </div>
+       <div class="skill-badge">
+        Powertrain Packaging
+       </div>
+       <div class="skill-badge">
+        Fabrication
+       </div>
+       <div class="skill-badge">
+        Project Scoping
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+    </div>
+   </div>
+  </section>
+  <section class="project-detail" id="audi-s4">
+   <h2 class="project-title">
+    2010 Audi S4 Repair and Rebuild
+   </h2>
+   <div class="project-meta">
+    Personal Project | 2010 Audi S4
+   </div>
+   <div class="project-layout">
+    <div class="project-text">
+     <h4>
+      Project Summary
+     </h4>
+     <p>
+      Purchased a non-running 2010 Audi S4 for $800 and worked through complex mechanical and electronic issues to diagnose and repair the vehicle.
+     </p>
+     <h4>
+      My Role
+     </h4>
+     <p>
+      Owner and primary troubleshooter responsible for diagnostic testing, repair planning, component replacement, and ECU recovery.
+     </p>
+     <h4>
+      Process &amp; Solution
+     </h4>
+     <p>
+      After an extended diagnosis, identified and replaced the starter. Reprogrammed an ECU that had been described as bricked. Additional repairs included the PCV valve, supercharger belt, oil cooler, hood strut, and engine mounts, along with injector cleaning.
+     </p>
+     <h4>
+      Engineering Focus
+     </h4>
+     <p>
+      Structured fault isolation, powertrain maintenance, automotive electronics, and troubleshooting across interconnected mechanical and control systems.
+     </p>
+     <div class="skills-section">
+      <div class="skills-header">
+       Top Skills Utilized
+      </div>
+      <div class="skills-grid">
+       <div class="skill-badge">
+        Diagnostics
+       </div>
+       <div class="skill-badge">
+        ECU Programming
+       </div>
+       <div class="skill-badge">
+        Powertrain Repair
+       </div>
+       <div class="skill-badge">
+        Troubleshooting
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="project-gallery">
+     <div class="gallery-item">
+      <img alt="Engine bay during diagnosis and disassembly." loading="lazy" src="assets/01-engine-bay-work.jpg"/>
+      <p>
+       Engine bay during diagnosis and disassembly.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Audi S4 being transported for repair." loading="lazy" src="assets/02-vehicle-transport.jpg"/>
+      <p>
+       Audi S4 being transported for repair.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Rear view of the Audi S4 before further repairs." loading="lazy" src="assets/03-initial-rear-view.jpg"/>
+      <p>
+       Rear view of the Audi S4 before further repairs.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Close-up of an engine component during teardown." loading="lazy" src="assets/04-engine-component-detail.jpg"/>
+      <p>
+       Close-up of an engine component during teardown.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Removed gasket during engine repair." loading="lazy" src="assets/05-removed-gasket.jpg"/>
+      <p>
+       Removed gasket during engine repair.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Supercharged V6 with intake components removed." loading="lazy" src="assets/06-intake-disassembly.jpg"/>
+      <p>
+       Supercharged V6 with intake components removed.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Engine bay inspection and diagnostics." loading="lazy" src="assets/07-engine-bay-diagnostics.jpg"/>
+      <p>
+       Engine bay inspection and diagnostics.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Rear lighting after work on the vehicle." loading="lazy" src="assets/08-night-rear-view.jpg"/>
+      <p>
+       Rear lighting after work on the vehicle.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Supercharger being lifted during repair." loading="lazy" src="assets/09-supercharger-lifting.jpg"/>
+      <p>
+       Supercharger being lifted during repair.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Engine repair in the home garage." loading="lazy" src="assets/10-garage-repair.jpg"/>
+      <p>
+       Engine repair in the home garage.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Supercharged 3.0T engine bay." loading="lazy" src="assets/11-supercharged-engine.jpg"/>
+      <p>
+       Supercharged 3.0T engine bay.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Instrument cluster showing warning indicators during diagnosis." loading="lazy" src="assets/12-instrument-cluster.jpg"/>
+      <p>
+       Instrument cluster showing warning indicators during diagnosis.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <img alt="Audi S4 exterior after mechanical work." loading="lazy" src="assets/13-exterior-view.jpg"/>
+      <p>
+       Audi S4 exterior after mechanical work.
+      </p>
+     </div>
+     <div class="gallery-item">
+      <video controls="" playsinline="" preload="metadata" src="assets/14-test-drive.mp4">
+       Your browser does not support video playback.
+      </video>
+      <p>
+       Audi S4 test-drive footage.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="about-section" id="about">
+   <div class="about-grid">
+    <div class="about-img">
+     <img alt="Avi Ignaczak crosskart engineering project" loading="lazy" src="assets/img-000.jpg"/>
+    </div>
+    <div class="about-copy">
+     <h2 class="project-title" style="margin-bottom:1.5rem;">
+      About Me
+     </h2>
+     <p>
+      I'm Avi Ignaczak, an Integrated Business and Engineering student at Purdue University with a Mechanical Engineering concentration. I enjoy solving problems by moving between analysis, CAD, manufacturing, and physical testing until an idea becomes a working system.
+     </p>
+     <p>
+      My experience spans vehicle design, CNC machining, metal additive manufacturing, biomechanics, 3D printing, and engineering leadership. I am especially interested in environments where strong mechanical design and manufacturing knowledge can be combined with practical business decision-making.
+     </p>
+     <div class="facts">
+      <ul>
+       <li>
+        <strong>
+         University:
+        </strong>
+        Purdue University
+       </li>
+       <li>
+        <strong>
+         Program:
+        </strong>
+        Integrated Business &amp; Engineering
+       </li>
+       <li>
+        <strong>
+         Concentration:
+        </strong>
+        Mechanical Engineering
+       </li>
+       <li>
+        <strong>
+         Email:
+        </strong>
+        aignacza@purdue.edu
+       </li>
+       <li>
+        <strong>
+         LinkedIn:
+        </strong>
+        linkedin.com/in/avi-ignaczak
+       </li>
+      </ul>
+     </div>
+     <a class="btn" href="Resume-Avi-Ignaczak.pdf" style="margin-right:1rem;" target="_blank">
+      View Resume
+     </a>
+     <a class="btn" href="mailto:aignacza@purdue.edu" style="background:transparent;color:var(--text-main);border:2px solid var(--text-main);">
+      Email Me
+     </a>
+    </div>
+   </div>
+  </section>
+  <footer>
+   &copy; 2026 Avi Ignaczak. Built as a lightweight static engineering portfolio.
+  </footer>
+ </body>
+</html>
+
